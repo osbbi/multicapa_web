@@ -1,0 +1,45 @@
+extends ./index.pug
+
+block contenido
+
+	div(class="container",ng-controller="shop")
+		div(class="check")
+			div(class="col-md-3 cart-total")
+				a(class="continue" href="#") Continue to basket
+				div(class="price-details")
+					h3 Price Details
+					span SubTotal
+					span(class="total1") {{subtotal}}
+					span Discount
+					span(class="total1") ---
+					span IVA
+					span(class="total1") {{iva}}
+				div(class="clearfix")
+				ul(class="total_price")
+					li(class="last_price")
+						h4 TOTAL	
+					li(class="last_price")
+						span {{total}}
+				div(class="clearfix")
+				a(class="order" href="#") Place Order
+				div(class="total-item")
+					h3 OPTIONS
+					h4 COUPONS
+					a(class="cpns" href="#") Apply Coupons
+					p
+						a(href="#") Log In to use accounts - linked coupons
+			div(class="col-md-9 cart-items")
+				h1 My Shopping Bag
+				div(ng-repeat="arti in car")
+					tr(class="cart_item")
+						td(class="product-remove")
+							button(ng-click="carrito.delete(arti, $index); get_total();get_subTotal();get_iva()") x
+						td(class="product-thumbnail")
+							a(href="single-product.html")
+								img(width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="{{arti.img}}")
+						td(class="product-name")
+							a(href="single-product.html") {{arti.nombre}} 
+						td(class="product-price")
+							span(class="amount") {{arti.precio}
+						td(class="product-subtotal")
+							span(class="amount") {{arti.importe}}

@@ -1,0 +1,66 @@
+extends ./index.pug
+
+block contenido
+
+	div(class="special",ng-controller="shop")
+		div(class="container")
+			h3 Special Offers - 
+				a(href="#myModal" data-toggle="modal" data-target="#myModal") Cart - 
+				span Total: {{total}}
+			div(id="myModal" class="modal fade" role="dialog")
+				div(class="modal-dialog")
+					div(class="modal-content")
+						div(class="modal-header")
+							button(type="button" class="close" data-dismiss="modal") &times;
+							h4(class="modal-title") Carrito
+							
+						div(class="modal-body")
+							form(method="post" action="#")
+								table(cellspacing="0" class="shop_table cart")
+									thead
+										tr
+											th(class="product-remove") &nbsp;
+											th(class="product-thumbnail") &nbsp;
+											th(class="product-name") Product
+											th(class="product-name") Cantidad
+											th(class="product-price") Price
+											th(class="product-subtotal") Total
+	
+									tbody(ng-repeat="arti in car")
+										tr(class="cart_item")
+											td(class="product-remove")
+												button(ng-click="carrito.delete(arti, $index); get_total();get_subTotal()") x
+	
+											td(class="product-thumbnail")
+												a(href="single-product.html")
+													img(width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="images/{{arti.img}}")
+	
+											td(class="product-name")
+												a(href="single-product.html") {{arti.nombre}}
+	
+											td(class="product-name")
+												a(href="single-product.html") {{arti.canti}} 
+	
+											td(class="product-price")
+												span(class="amount") {{arti.precio}}
+	
+											td(class="product-subtotal")
+												span(class="amount") {{arti.importe}}
+						div(class="clearfix")
+								h3 Subtotal: {{subtotal}}
+								h3 Total: {{total}}
+								h3 IVA: {{iva}}
+						div(class="modal-footer")
+							button(type="button" class="btn btn-default" data-dismiss="modal") Close
+			div(class="specia-top")
+				ul(class="grid_2")
+					li(ng-repeat="arti in articulos")
+						a(href="/{{arti._id}}")
+							img(src="images/{{arti.img}} "  height="600px" width="600px" class="img-responsive" alt="")
+						div(class="special-info grid_1 simpleCart_shelfItem")
+								h5 {{arti.nombre}}
+								div(class="item_add")
+									span(class="item_price")
+										h6 ONLY ${{arti.precio}}
+									button(ng-click="carrito.addCar(arti); get_total();get_noArticulos();get_iva();get_subTotal()") Add to cart
+			div(class="clearfix")

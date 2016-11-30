@@ -1,0 +1,66 @@
+extends ./index.pug
+
+block contenido
+	
+	<div class="header_bg",ng-controller="shop">
+	div(class="container")
+		div(class="women_main")
+			div(class="row single")
+				div(class="col-md-9 det")
+					div(class="single_left")
+						div(class="grid images_3_of_2")
+								img(src="images/#{doc.img}")
+						div(class="clearfix")
+						div(class="desc1 span_3_of_2")
+							h3 Articulo
+							span(class="brand") Brand: #{doc.nombre}
+							br
+							span(class="code") Product Code: #{doc._id}
+							p when an unknown printer took a galley of type and scrambled it to make
+								div(class="price")
+									span(class="text") Price:
+									span(class="price-new") $#{doc.precio}
+									span(class="price-tax") Ex Tax: $90.00
+										br
+									span(class="points")
+										small Price in reward points: 400
+										br
+							div(class="btn_form")
+								a(href="checkout.html") buy
+							a(href="#")
+								span login to save in wishlist
+						div(class="clearfix")
+					div(class="single-bottom1")
+						h6 Details
+						p(class="prod-desc") 
+							p #{doc.descri}
+					div(class="single-bottom2")
+						h6 Related Products
+							div(class="product")
+								div(class="product-desc")
+									div(class="product-img")
+										img(src="images/w10.jpg" class="img-responsive " alt="")
+									div(class="prod1-desc")
+										h5
+											a(class="product_link" href="#") Excepteur sint
+										p(class="product_descr") Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+									div(class="clearfix")
+								div(class="product_price")
+									span(class="price-access") $597.51
+									button(class="button1") Add to cart
+								div(class="clearfix")
+					div(class="clearfix")
+							div(class="product")
+								div(class="product-desc")
+									div(class="product-img")
+										img(src="images/w10.jpg" class="img-responsive " alt="")
+									div(class="prod1-desc")
+										h5
+											a(class="product_link" href="#") Excepteur sint
+										p(class="product_descr") Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+									div(class="clearfix")
+								div(class="product_price")
+									span(class="price-access") $597.51
+									button(class="button1") Add to cart
+								div(class="clearfix")
+					div(class="clearfix")
